@@ -7,7 +7,7 @@ export default function Navbar() {
     <header className="nav">
       <div className="nav-inner">
         <div className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>MERN Blog</Link>
+          <Link to="/" style={{ textDecoration: "none", color: "#fed7aa"}}>MERN Blog</Link>
         </div>
 
         <nav className="nav-links">

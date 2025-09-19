@@ -127,17 +127,18 @@ export default function Home() {
           </article>
         ))}
       </div>
-
+        
       {open && (
         <div style={overlay}>
           <div style={modal}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
               <h2 style={{ margin: 0 }}>{open.title}</h2>
-              <button onClick={() => setOpen(null)} style={closeBtn}>Close</button>
+             
             </div>
-            <p style={{ color: "#6b7280", marginTop: 8 }}>By {open.author} • {open.date}</p>
+            <p style={{ color: "#55627eff", marginTop: 8 }}>By {open.author} • {open.date}</p>
             <img src={open.image} alt={open.title} style={{ width: "100%", height: 260, objectFit: "cover", borderRadius: 8, marginTop: 14 }} />
-            <div style={{ marginTop: 12, color: "#374151", whiteSpace: "pre-line" }}>{open.body}</div>
+            <div style={{ marginTop: 12, color: "#374151", whiteSpace: "pre-line" }}>{open.body}</div> 
+              <button onClick={() => setOpen(null)} style={closeBtn}>Close</button>
           </div>
         </div>
       )}
@@ -150,4 +151,4 @@ const overlay = {
   position: "fixed", inset: 0, background: "rgba(2,6,23,0.45)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20, zIndex: 2000
 };
 const modal = { width: "min(880px, 96%)", maxHeight: "90vh", overflowY: "auto", background: "#fff", padding: 22, borderRadius: 12, boxShadow: "0 20px 60px rgba(2,6,23,0.35)" };
-const closeBtn = { background: "transparent", color: "#6b7280", border: "1px solid rgba(15,23,42,0.06)", padding: "6px 10px", borderRadius: 8, cursor: "pointer" };
+const closeBtn = { background: "#ddaa1cff", color: "#000000ff", border: "1px solid rgba(15,23,42,0.06)", padding: "6px 10px", borderRadius: 5, cursor: "pointer" };

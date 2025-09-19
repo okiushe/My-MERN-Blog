@@ -4,9 +4,9 @@
 :root{
   --bg: linear-gradient(135deg,#a5b4fc , #fed7aa 60%,  #fef3c7 100%);    
   --card: #ffffff;     
-  --text: #011d42;     
+  --text: #031a37;     
   --muted: #000000;   
-  --accent: #011d42;   
+  --accent: #fed7aa;
   --radius: 12px;
   --shadow: 0 8px 30px rgba(17,24,39,0.06);
 }
@@ -18,7 +18,7 @@ html,body,#root { height:100%; margin:0; padding:0; font-family: 'Inter', system
 
 
 .nav {
-  background:#f5f5f5 (light grey);
+  background:#011125;  
   border-bottom: 1px solid rgba(15,23,42,0.04);
   position: sticky;
   top:0;
@@ -34,7 +34,7 @@ html,body,#root { height:100%; margin:0; padding:0; font-family: 'Inter', system
   gap:12px;
 }
 .brand { font-family: 'Poppins', sans-serif; font-weight:600; color:var(--text); letter-spacing: -0.2px; }
-.nav-links a { margin-left:10px; text-decoration:none; color:var(--accent); font-weight:600; padding:6px 10px; border-radius:8px; }
+.nav-links a { margin-left:10px; text-decoration:#a5b4fc; color:var(--accent); font-weight:600; padding:6px 10px; border-radius:8px; }
 .nav-links a.ghost { background: transparent; color:var(--accent); border:1px solid rgba(37,99,235,0.06); }
 
 
