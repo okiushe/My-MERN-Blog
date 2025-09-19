@@ -1,50 +1,58 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+// client/src/pages/Signin.js
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Signin() {
-  const [email, setEmail]       = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    try {
-      const { data } = await axios.post(`${API_BASE_URL}/api/auth/signin`, { email, password });
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('name', data.name);
-      localStorage.setItem('email', data.email);
-      navigate('/');
-    } catch (err) {
-      alert(err.response.data.error);
+    setError("");
+    if (!email || !password) {
+      setError("Please enter both email and password.");
+      return;
     }
-  };
+    setBusy(true);
+    setTimeout(() => {
+      setBusy(false);
+      alert("Signed in (UI-only).");
+      navigate("/");
+    }, 700);
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Sign In</h2>
-      <div className="mb-3">
-        <label className="form-label">Email</label>
-        <input
-          type="email"
-          className="form-control"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div className="mb-3">
-        <label className="form-label">Password</label>
-        <input
-          type="password"
-          className="form-control"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">Sign In</button>
-    </form>
+    <div style={{ maxWidth: 640, margin: "18px auto", background: "var(--card)", padding: 18, borderRadius: 10 }}>
+      <h2 style={{ marginTop: 0 }}>Sign In</h2>
+      <form onSubmit={handleSubmit}>
+        <div style={{ marginBottom: 12 }}>
+          <label style={{ display: "block", fontSize: 14, marginBottom: 6 }}>Email</label>
+          <input value={email} onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@example.com"
+            style={{ width: "100%", padding: 10, borderRadius: 8, border: "1px solid #e5e7eb" }}
+            type="email"
+          />
+        </div>
+
+        <div style={{ marginBottom: 12 }}>
+          <label style={{ display: "block", fontSize: 14, marginBottom: 6 }}>Password</label>
+          <input value={password} onChange={(e) => setPassword(e.target.value)}
+            placeholder="••••••••"
+            style={{ width: "100%", padding: 10, borderRadius: 8, border: "1px solid #e5e7eb" }}
+            type="password"
+          />
+        </div>
+
+        {error && <div style={{ color: "crimson", marginBottom: 8 }}>{error}</div>}
+
+        <div style={{ display: "flex", gap: 10 }}>
+          <button className="btn" type="submit" disabled={busy}>{busy ? "Signing in..." : "Sign In"}</button>
+          <button type="button" className="btn ghost" onClick={() => navigate("/signup")}>Create account</button>
+        </div>
+      </form>
+    </div>
   );
 }

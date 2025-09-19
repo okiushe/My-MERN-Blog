@@ -1,0 +1,38 @@
+/* Navbar.css */
+.nav {
+  background: linear-gradient(90deg, rgba(0,0,0,0.25), rgba(255,255,255,0.02));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(6px);
+}
+
+.nav-inner {
+  max-width:1200px;
+  margin:0 auto;
+  padding: 0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand {
+  color:var(--white);
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:1.05rem;
+}
+
+.logo-dot {
+  width:12px;
+  height:12px;
+  background: linear-gradient(45deg, var(--accent-1), var(--accent-2));
+  border-radius:50%;
+  box-shadow:0 6px 20px rgba(124,92,255,0.2);
+}
+
+.nav-links { display:flex; gap:12px; align-items:center; }
