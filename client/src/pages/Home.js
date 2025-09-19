@@ -73,7 +73,6 @@ process is faster, my code is more organized, and the end result feels cleaner a
 A short roadmap: 1) Solid JS fundamentals 2) React and accessible components 3) CSS layout and design patterns 4) Deploy small apps and iterate.
 Focus on clarity: readable code and readable UI.
 
-
 Every year the frontend world evolves, and it’s easy to get lost with so many frameworks and tools 
 being released. For 2025, I decided to build myself a short and realistic roadmap that focuses on 
 skills I actually need as a frontend developer, instead of trying to learn everything at once.
